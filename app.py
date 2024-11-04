@@ -15,7 +15,7 @@ def recomendado(client_id):
     if is_int(client_id):
         recommendations = data.recomendation_loader.recommend_products(int(client_id), 5)
         return render_template('recomendado.html', data={'titulo': 'Recomendado', 'client_id': client_id, 'recommendations': recommendations})
-    return render_template('recomendado.html', data={'titulo': 'VALOR INVALIDO', 'msg': 'VALOR INVALIDO', 'is_valid': client_id})
+    return render_template('recomendado.html', data={'titulo': 'VALOR INVALIDO', 'msg': 'VALOR INVALIDO', 'is_valid': is_int(client_id)})
 
 @app.route('/enviar', methods=['POST'])
 def enviar():
