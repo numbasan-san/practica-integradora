@@ -1,8 +1,0 @@
-Flask==2.3.2
-Flask-Cors==3.0.10
-pandas==1.5.3
-numpy==1.23.5
-matplotlib==3.7.1
-seaborn==0.12.2
-scikit-learn==1.3.0
-gunicorn==20.1.0  # Para producción
