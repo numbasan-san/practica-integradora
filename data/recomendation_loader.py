@@ -86,4 +86,4 @@ def recommend_products(member_number, n_recommendations=5):
     return recommendations[:n_recommendations]
 
 # Ejemplo de uso de la función de recomendación
-print(recommend_products(1808, 5))
+# print(recommend_products(1808, 5))
