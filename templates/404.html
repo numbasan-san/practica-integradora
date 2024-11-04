@@ -1,0 +1,12 @@
+
+{% extends './layout.html' %}
+
+{% block title %}E R R O R : N O T - F O U N D{% endblock %}
+
+
+{% block body %}
+    <br />
+    <h1>No hay página.</h1>
+    <br />
+    <a href="{{ url_for('index') }}">Regresar al index</a>
+{% endblock %}

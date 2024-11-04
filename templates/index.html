@@ -1,0 +1,16 @@
+<!-- index.html -->
+{% extends './layout.html' %}
+
+{% block title %}{{ data.titulo }}{% endblock %}
+
+{% block body %}
+<br  />
+<form action="{{ url_for('enviar') }}" method="post" class="card-body">
+    <h1>{{ data.bienvenida }}</h1>
+    <div class="mb-3">
+        <label for="client_id_input" class="form-label">{{ data.aviso }}</label>
+        <input type="text" class="form-control" id="client_id_input" name="client_id_input" required>
+        <button class="btn" type="submit">Enviar</button>
+    </div>
+</form>
+{% endblock %}

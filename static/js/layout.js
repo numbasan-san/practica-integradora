@@ -1,0 +1,2 @@
+
+// alert('Monstruos a cazar:');
