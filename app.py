@@ -37,8 +37,8 @@ def is_int(var):
 if __name__ == '__main__':
     app.register_error_handler(404, not_found)
 
-    # from gevent.pywsgi import WSGIServer
-    # http_server = WSGIServer(('', 5000), app)
-    # http_server.serve_forever()
+    from gevent.pywsgi import WSGIServer
+    http_server = WSGIServer(('', 5000), app)
+    http_server.serve_forever()
 
-    app.run(debug=True, port=5000)
+    # app.run(debug=True, port=5000)
