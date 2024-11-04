@@ -27,4 +27,6 @@ def not_found(error):
 
 if __name__ == '__main__':
     app.register_error_handler(404, not_found)
-    app.run(debug=False, port=5000)
+    from gevent.pywsgi import WSGIServer
+    http_server = WSGIServer(('', 5000), app)
+    http_server.serve_forever()
