@@ -27,4 +27,4 @@ def not_found(error):
 
 if __name__ == '__main__':
     app.register_error_handler(404, not_found)
-    app.run(debug=True, port=5000)
+    app.run(debug=False, port=5000)
