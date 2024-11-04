@@ -12,7 +12,9 @@ def index():
 
 @app.route('/recomendado/<client_id>')
 def recomendado(client_id):
-    client_id = int(client_id)
+    client_id = is_int(client_id)
+    if client_id == False:
+        return render_template('recomendado.html', data={'titulo': 'VALOR INVALIDO', 'msg': 'VALOR INVALIDO', 'is_valid': client_id})
     recommendations = data.recomendation_loader.recommend_products(client_id, 5)
     return render_template('recomendado.html', data={'titulo': 'Recomendado', 'client_id': client_id, 'recommendations': recommendations})
 
@@ -25,8 +27,18 @@ def not_found(error):
     return render_template('404.html'), 404
     # return redirect(url_for('index'))
 
+def is_int(var):
+    try:
+        int(var)
+        return int(var)
+    except:
+        return False
+
 if __name__ == '__main__':
     app.register_error_handler(404, not_found)
-    from gevent.pywsgi import WSGIServer
-    http_server = WSGIServer(('', 5000), app)
-    http_server.serve_forever()
+
+    # from gevent.pywsgi import WSGIServer
+    # http_server = WSGIServer(('', 5000), app)
+    # http_server.serve_forever()
+
+    app.run(debug=True, port=5000)

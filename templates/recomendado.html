@@ -6,14 +6,23 @@
 {% block body %}
     <br />
     <a href="{{ url_for('index') }}">Regresar al index</a>
-    <h1>Recomendaciones para {{ data.client_id }}</h1>
-    {% if data.recommendations %}
-        <ul>
-            {% for product in data.recommendations %}
-                <li>{{ product }}</li>
+
+    {% if data.is_valid == False %}
+        <center>
+            {% for i in range(10) %}
+                <h2>{{ data.msg }}</h2>
             {% endfor %}
-        </ul>
+        </center>
     {% else %}
-        <p>El ID {{ data.client_id }} no existe en nuestra base de datos.</p>
+        <h1>Recomendaciones para {{ data.client_id }}</h1>
+        {% if data.recommendations %}
+            <ul>
+                {% for product in data.recommendations %}
+                    <li>{{ product }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>El ID {{ data.client_id }} no existe en nuestra base de datos.</p>
+        {% endif %}
     {% endif %}
 {% endblock %}
