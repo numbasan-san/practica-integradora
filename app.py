@@ -12,11 +12,10 @@ def index():
 
 @app.route('/recomendado/<client_id>')
 def recomendado(client_id):
-    client_id = is_int(client_id)
-    if client_id == False:
-        return render_template('recomendado.html', data={'titulo': 'VALOR INVALIDO', 'msg': 'VALOR INVALIDO', 'is_valid': client_id})
-    recommendations = data.recomendation_loader.recommend_products(client_id, 5)
-    return render_template('recomendado.html', data={'titulo': 'Recomendado', 'client_id': client_id, 'recommendations': recommendations})
+    if is_int(client_id):
+        recommendations = data.recomendation_loader.recommend_products(int(client_id), 5)
+        return render_template('recomendado.html', data={'titulo': 'Recomendado', 'client_id': client_id, 'recommendations': recommendations})
+    return render_template('recomendado.html', data={'titulo': 'VALOR INVALIDO', 'msg': 'VALOR INVALIDO', 'is_valid': client_id})
 
 @app.route('/enviar', methods=['POST'])
 def enviar():
